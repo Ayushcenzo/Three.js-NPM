@@ -1,4 +1,4 @@
-import { Suspense, useState, useRef } from "react";
+import { Suspense, useState, useRef, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Environment, ContactShadows, OrbitControls } from "@react-three/drei";
 import { BotModel } from "./components/BotModel";
@@ -13,6 +13,12 @@ import {
 function App() {
   const [architectureActive, setArchitectureActive] = useState(false);
   const orbitRef = useRef(null);
+
+  useEffect(() => {
+    if (!architectureActive && orbitRef.current) {
+      orbitRef.current.reset();
+    }
+  }, [architectureActive]);
 
   return (
     // overflow-x-hidden fixes the width bleed issue
@@ -33,15 +39,17 @@ function App() {
           <OrbitControls
             ref={orbitRef}
             enabled={architectureActive}
-            enableZoom={true}
+            enableZoom={false}
             enablePan={false}
-            minDistance={4}
-            maxDistance={14}
             dampingFactor={0.08}
             enableDamping
             rotateSpeed={0.6}
-            // Reset to default on deactivation
             makeDefault={false}
+            onChange={() => {
+              if (architectureActive) return;
+              // Re-center if dragging briefly when disabled
+              orbitRef.current?.reset();
+            }}
           />
 
           <Suspense fallback={null}>

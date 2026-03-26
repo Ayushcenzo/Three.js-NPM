@@ -129,12 +129,12 @@ export function BotModel({ onArchitectureChange }) {
     tl.to(group.current.position, { x: 0, y: 0, z: 0, ease: "power2.inOut", duration: 1 }, 1)
       .to(group.current.rotation, { y: 0, ease: "power2.inOut", duration: 1 }, 1);
 
-    // Phase 2-3: Explode parts
-    tl.to(headRef.current.position, { y: 2.5, ease: "power2.out", duration: 1 }, 2)
-      .to(bodyRef.current.position, { z: -1.5, ease: "power2.out", duration: 1 }, 2)
-      .to(leftArmRef.current.position, { x: -2.5, y: 0.8, ease: "power2.out", duration: 1 }, 2)
-      .to(rightArmRef.current.position, { x: 2.5, y: 0.8, ease: "power2.out", duration: 1 }, 2)
-      .to(baseRef.current.position, { y: -2.5, ease: "power2.out", duration: 1 }, 2);
+    // Phase 2-3: Explode parts (reduced distances)
+    tl.to(headRef.current.position, { y: 0.6, ease: "power2.out", duration: 1 }, 2)
+      .to(bodyRef.current.position, { z: -0.4, ease: "power2.out", duration: 1 }, 2)
+      .to(leftArmRef.current.position, { x: -0.8, y: 0.2, ease: "power2.out", duration: 1 }, 2)
+      .to(rightArmRef.current.position, { x: 0.8, y: 0.2, ease: "power2.out", duration: 1 }, 2)
+      .to(baseRef.current.position, { y: -0.6, ease: "power2.out", duration: 1 }, 2);
 
     // Phase 2.5-3: Show annotations
     const annotations = [headHtml.current, bodyHtml.current, armsHtml.current, baseHtml.current].filter(Boolean);

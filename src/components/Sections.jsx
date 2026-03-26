@@ -51,7 +51,7 @@ export function SpecsSection() {
 // ─── Disassembly Section ──────────────────────────────────────────────────────
 export function DisassemblySection() {
   return (
-    <section className="w-screen h-[200vh] flex justify-center items-start pt-[15vh] px-[10vw] pointer-events-none">
+    <section className="disassembly-section w-screen h-[200vh] flex justify-center items-start pt-[15vh] px-[10vw] pointer-events-none">
       <h2 className="text-[5rem] font-semibold tracking-[-0.04em] text-center uppercase opacity-80 bg-gradient-to-b from-white to-transparent bg-clip-text text-transparent">
         Modular Architecture
       </h2>
