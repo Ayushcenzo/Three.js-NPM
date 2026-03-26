@@ -4,9 +4,7 @@ export function HeroSection() {
     <section className="w-screen h-screen flex items-center justify-end px-[10vw] pointer-events-auto">
       <div className="max-w-[600px]">
         <h1 className="text-[5.5rem] font-extrabold tracking-[-0.04em] leading-[1.1] mb-6 bg-gradient-to-b from-white to-zinc-400 bg-clip-text text-transparent">
-          Nexus
-          <br />
-          Protocol
+          FalconX
         </h1>
         <p className="text-[1.4rem] font-light text-zinc-400 leading-relaxed tracking-[-0.01em]">
           The next generation of autonomous robotic assistants. Scroll down to
