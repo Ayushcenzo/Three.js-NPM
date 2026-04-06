@@ -25,7 +25,7 @@ export function BotModel({ onArchitectureChange }) {
     const isMobile = window.innerWidth < 768;
 
     // Reset transforms to Hero section (closeup of upper body)
-    group.current.position.set(isMobile ? 0 : -2.5, isMobile ? -2.6 : -2.2, isMobile ? 4 : 3);
+    group.current.position.set(isMobile ? 0 : -2.5, isMobile ? -1.2 : -2.2, isMobile ? 3 : 3);
     group.current.rotation.set(0, Math.PI / 8, 0);
     
     [headRef, bodyRef, leftArmRef, rightArmRef, baseRef].forEach((r) =>
@@ -44,8 +44,8 @@ export function BotModel({ onArchitectureChange }) {
     // 0 to 1: Hero → Specs (Zoom in and pull to right side)
     tl.to(group.current.position, { 
         x: isMobile ? 0 : 1.8, 
-        y: isMobile ? -1.8 : -2, 
-        z: isMobile ? 2.5 : 1.8, 
+        y: isMobile ? -1.2 : -2, 
+        z: isMobile ? 1.5 : 1.8, 
         ease: "power1.inOut", 
         duration: 1 
       }, 0)

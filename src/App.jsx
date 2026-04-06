@@ -17,6 +17,9 @@ function App() {
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 768);
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   useEffect(() => {
@@ -40,17 +43,19 @@ function App() {
           <pointLight position={[5, 3, 2]}   intensity={50} color="#ffffff" distance={20} decay={2} />
           <pointLight position={[-5, -3, 2]} intensity={20} color="#38bdf8" distance={20} decay={2} />
 
-          {/* OrbitControls — disabled on mobile to prevent scroll trap */}
-          <OrbitControls
-            ref={orbitRef}
-            enabled={architectureActive && !isMobile}
-            enableZoom={false}
-            enablePan={false}
-            dampingFactor={0.08}
-            enableDamping
-            rotateSpeed={0.6}
-            makeDefault={false}
-          />
+          {/* OrbitControls — only active during architecture section on desktop */}
+          {!isMobile && (
+            <OrbitControls
+              ref={orbitRef}
+              enabled={architectureActive}
+              enableZoom={false}
+              enablePan={false}
+              dampingFactor={0.08}
+              enableDamping
+              rotateSpeed={0.6}
+              makeDefault={false}
+            />
+          )}
 
           <Suspense fallback={null}>
             <Environment preset="city" />
@@ -67,8 +72,8 @@ function App() {
         </Canvas>
       </div>
 
-      {/* ── Orbit hint badge — shown only in architecture section ── */}
-      {architectureActive && (
+      {/* ── Orbit hint badge — shown only in architecture section on desktop ── */}
+      {architectureActive && !isMobile && (
         <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[10] flex items-center gap-2 bg-black/60 backdrop-blur-xl border border-white/10 rounded-full px-5 py-2 text-xs text-zinc-400 pointer-events-none select-none animate-fade-in">
           <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
           Drag to orbit · Scroll to continue

@@ -1,12 +1,12 @@
 // ─── Hero Section ─────────────────────────────────────────────────────────────
 export function HeroSection() {
   return (
-    <section className="w-screen h-screen flex flex-col justify-end md:flex-row md:items-center md:justify-end px-6 md:px-[10vw] pointer-events-auto pb-12 md:pb-0">
-      <div className="max-w-[600px] text-center md:text-left">
+    <section className="w-screen h-[100dvh] flex flex-col justify-end md:flex-row md:items-center md:justify-end px-6 md:px-[10vw] pointer-events-auto pb-24 md:pb-0">
+      <div className="max-w-[600px] text-center md:text-left mt-auto md:mt-0">
         <h1 className="text-5xl md:text-[5.5rem] font-extrabold tracking-[-0.04em] leading-[1.1] mb-6 bg-gradient-to-b from-[#f97316] to-[#ea580c] bg-clip-text text-transparent">
           Project Nexus
         </h1>
-        <p className="text-[1.4rem] font-light text-zinc-400 leading-relaxed tracking-[-0.01em]">
+        <p className="text-base md:text-[1.4rem] font-light text-zinc-400 leading-relaxed tracking-[-0.01em]">
           The pinnacle of autonomous mobility and synthetic intelligence. Scroll down to
           review the operational specs and structural integrity of the Mk. IV platform.
         </p>
@@ -35,10 +35,10 @@ export function SpecsSection() {
           {specs.map(({ label, value }) => (
             <li
               key={label}
-              className="flex justify-between text-[1.1rem] text-zinc-400 border-b border-white/[0.05] py-4"
+              className="flex flex-col md:flex-row md:justify-between text-sm md:text-[1.1rem] text-zinc-400 border-b border-white/[0.05] py-3 md:py-4 gap-1 md:gap-0"
             >
               <span className="text-white font-normal">{label}</span>
-              <span>{value}</span>
+              <span className="md:text-right text-zinc-500 md:text-zinc-400">{value}</span>
             </li>
           ))}
         </ul>
@@ -65,7 +65,7 @@ function FeatureCard({ title, description }) {
       <h3 className="text-xl md:text-[1.4rem] font-semibold leading-[1.2] text-white tracking-[-0.02em] mb-4">
         {title}
       </h3>
-      <p className="text-base leading-relaxed text-zinc-400 font-light">
+      <p className="text-sm md:text-base leading-relaxed text-zinc-400 font-light">
         {description}
       </p>
     </div>
