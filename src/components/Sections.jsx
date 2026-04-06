@@ -1,4 +1,3 @@
-// ─── Hero Section ─────────────────────────────────────────────────────────────
 export function HeroSection() {
   return (
     <section className="w-screen h-[100dvh] flex flex-col justify-end md:flex-row md:items-center md:justify-end px-6 md:px-[10vw] pointer-events-auto pb-24 md:pb-0">
@@ -15,7 +14,6 @@ export function HeroSection() {
   );
 }
 
-// ─── Specs Section ────────────────────────────────────────────────────────────
 export function SpecsSection() {
   const specs = [
     { label: "Designation", value: "Mk. IV Nexus" },
@@ -47,7 +45,6 @@ export function SpecsSection() {
   );
 }
 
-// ─── Disassembly Section ──────────────────────────────────────────────────────
 export function DisassemblySection() {
   return (
     <section className="disassembly-section w-screen h-[200vh] flex justify-center items-start pt-[15vh] px-[10vw] pointer-events-none">
@@ -58,7 +55,6 @@ export function DisassemblySection() {
   );
 }
 
-// ─── Feature Card ─────────────────────────────────────────────────────────────
 function FeatureCard({ title, description }) {
   return (
     <div className="w-[350px] bg-[rgba(20,20,25,0.3)] backdrop-blur-[40px] border border-white/[0.05] shadow-[0_30px_60px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.05)] p-10 rounded-3xl my-6 transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:bg-[rgba(30,30,35,0.6)] hover:border-[#ea580c]/50">
@@ -72,7 +68,6 @@ function FeatureCard({ title, description }) {
   );
 }
 
-// ─── Functionality Section ────────────────────────────────────────────────────
 export function FunctionalitySection() {
   const leftCards = [
     {

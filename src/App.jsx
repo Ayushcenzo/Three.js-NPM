@@ -29,21 +29,22 @@ function App() {
   }, [architectureActive]);
 
   return (
-    // overflow-x-hidden fixes the width bleed issue
-    <div className="relative w-full max-w-[100vw] overflow-x-hidden bg-[#030407] text-white">
+    <div className="relative w-full max-w-[100vw] overflow-x-hidden bg-[#0a0f19] text-white selection:bg-[#ea580c] selection:text-white">
 
-      {/* ── Fixed 3D Canvas ── */}
       <div
         className="fixed inset-0 z-[1] transition-[pointer-events] duration-300"
         style={{ pointerEvents: architectureActive ? "auto" : "none" }}
       >
-        <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
-          <color attach="background" args={["#0b0f19"]} />
+        <Canvas 
+          camera={{ position: [0, 0, 8], fov: 45 }}
+          dpr={[1, 1.5]}
+          gl={{ powerPreference: "high-performance" }}
+        >
+          <color attach="background" args={["#0a0f19"]} />
           <ambientLight intensity={0.5} />
-          <pointLight position={[5, 3, 2]}   intensity={50} color="#ffffff" distance={20} decay={2} />
+          <pointLight position={[5, 3, 2]} intensity={50} color="#ffffff" distance={20} decay={2} />
           <pointLight position={[-5, -3, 2]} intensity={20} color="#38bdf8" distance={20} decay={2} />
 
-          {/* OrbitControls — only active during architecture section on desktop */}
           {!isMobile && (
             <OrbitControls
               ref={orbitRef}
@@ -66,13 +67,14 @@ function App() {
               scale={10}
               blur={2}
               far={4}
+              resolution={256}
+              frames={1}
             />
             <DynamicStars />
           </Suspense>
         </Canvas>
       </div>
 
-      {/* ── Orbit hint badge — shown only in architecture section on desktop ── */}
       {architectureActive && !isMobile && (
         <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[10] flex items-center gap-2 bg-black/60 backdrop-blur-xl border border-white/10 rounded-full px-5 py-2 text-xs text-zinc-400 pointer-events-none select-none animate-fade-in">
           <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse" />
@@ -80,7 +82,6 @@ function App() {
         </div>
       )}
 
-      {/* ── Scrollable Content ── */}
       <div
         className="relative z-[2] scroll-content"
         style={{ pointerEvents: architectureActive ? "none" : "auto" }}
