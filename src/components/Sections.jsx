@@ -1,15 +1,14 @@
 // ─── Hero Section ─────────────────────────────────────────────────────────────
 export function HeroSection() {
   return (
-    <section className="w-screen h-screen flex items-center justify-end px-[10vw] pointer-events-auto">
-      <div className="max-w-[600px]">
-        <h1 className="text-[5.5rem] font-extrabold tracking-[-0.04em] leading-[1.1] mb-6 bg-gradient-to-b from-white to-zinc-400 bg-clip-text text-transparent">
-          Nexus
+    <section className="w-screen h-screen flex flex-col justify-end md:flex-row md:items-center md:justify-end px-6 md:px-[10vw] pointer-events-auto pb-12 md:pb-0">
+      <div className="max-w-[600px] text-center md:text-left">
+        <h1 className="text-5xl md:text-[5.5rem] font-extrabold tracking-[-0.04em] leading-[1.1] mb-6 bg-gradient-to-b from-[#f97316] to-[#ea580c] bg-clip-text text-transparent">
+          Project Nexus
         </h1>
         <p className="text-[1.4rem] font-light text-zinc-400 leading-relaxed tracking-[-0.01em]">
-          The next generation of autonomous robotic assistants. Scroll down to
-          discover the intricate engineering and unparalleled functionality of
-          our flagship model.
+          The pinnacle of autonomous mobility and synthetic intelligence. Scroll down to
+          review the operational specs and structural integrity of the Mk. IV platform.
         </p>
       </div>
     </section>
@@ -19,18 +18,18 @@ export function HeroSection() {
 // ─── Specs Section ────────────────────────────────────────────────────────────
 export function SpecsSection() {
   const specs = [
-    { label: "Height",    value: "1.8 Meters" },
-    { label: "Weight",    value: "125 kg (Carbon-Titanium)" },
-    { label: "Processor", value: "Quantum Neural Net v4" },
-    { label: "Power",     value: "Micro-Fusion Battery (10yr)" },
-    { label: "Vision",    value: "360° LIDAR + Infrared" },
+    { label: "Designation", value: "Mk. IV Nexus" },
+    { label: "Chassis",     value: "Obsidian Polymer Blend" },
+    { label: "Joints",      value: "Titanium-Tungsten Alloy" },
+    { label: "Energy Core", value: "High-Yield Thermo Dynamo" },
+    { label: "Optics",      value: "360° Neural-Infrared LIDAR" },
   ];
 
   return (
     <section className="w-screen h-screen flex items-center justify-start px-[10vw] pointer-events-auto">
-      <div className="max-w-[450px] bg-[rgba(20,20,25,0.3)] backdrop-blur-[40px] border border-white/[0.08] shadow-[0_30px_60px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.1)] p-12 rounded-3xl">
-        <h2 className="text-[2.5rem] font-semibold tracking-[-0.03em] mb-8 text-white">
-          Core Specifications
+      <div className="max-w-[450px] bg-[rgba(20,20,25,0.3)] backdrop-blur-[40px] border border-[#ea580c]/30 shadow-[0_30px_60px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.05)] p-12 rounded-3xl">
+        <h2 className="text-3xl md:text-[2.5rem] font-semibold tracking-[-0.03em] leading-[1.2] mb-8 text-white">
+          Hardware Specs
         </h2>
         <ul className="list-none space-y-0">
           {specs.map(({ label, value }) => (
@@ -52,8 +51,8 @@ export function SpecsSection() {
 export function DisassemblySection() {
   return (
     <section className="disassembly-section w-screen h-[200vh] flex justify-center items-start pt-[15vh] px-[10vw] pointer-events-none">
-      <h2 className="text-[5rem] font-semibold tracking-[-0.04em] text-center uppercase opacity-80 bg-gradient-to-b from-white to-transparent bg-clip-text text-transparent">
-        Modular Architecture
+      <h2 className="text-4xl md:text-[5rem] font-semibold tracking-[-0.04em] leading-[1.1] text-center uppercase opacity-80 bg-gradient-to-b from-white to-zinc-600 bg-clip-text text-transparent">
+        Material Deconstruction
       </h2>
     </section>
   );
@@ -62,8 +61,8 @@ export function DisassemblySection() {
 // ─── Feature Card ─────────────────────────────────────────────────────────────
 function FeatureCard({ title, description }) {
   return (
-    <div className="w-[350px] bg-[rgba(20,20,25,0.3)] backdrop-blur-[40px] border border-white/[0.08] shadow-[0_30px_60px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.1)] p-10 rounded-3xl my-6 transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:bg-[rgba(30,30,35,0.4)] hover:border-white/[0.15]">
-      <h3 className="text-[1.4rem] font-semibold text-white tracking-[-0.02em] mb-4">
+    <div className="w-[350px] bg-[rgba(20,20,25,0.3)] backdrop-blur-[40px] border border-white/[0.05] shadow-[0_30px_60px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.05)] p-10 rounded-3xl my-6 transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-2 hover:bg-[rgba(30,30,35,0.6)] hover:border-[#ea580c]/50">
+      <h3 className="text-xl md:text-[1.4rem] font-semibold leading-[1.2] text-white tracking-[-0.02em] mb-4">
         {title}
       </h3>
       <p className="text-base leading-relaxed text-zinc-400 font-light">
@@ -77,23 +76,23 @@ function FeatureCard({ title, description }) {
 export function FunctionalitySection() {
   const leftCards = [
     {
-      title: "Autonomous Navigation",
-      description: "Real-time pathfinding and dynamic obstacle avoidance using combined sensor fusion.",
+      title: "All-Terrain Locomotion",
+      description: "Advanced gyroscopic stabilization and reinforced bipedal joints allow operation in 45° steep or jagged environments.",
     },
     {
-      title: "Tactile Manipulation",
-      description: "Precision-engineered fingertips capable of handling fragile objects or lifting up to 500kg.",
+      title: "Kinetic Deflection",
+      description: "Outer Obsidian-Polymer shell diffuses impact forces across the chassis, nullifying blunt force trauma.",
     },
   ];
 
   const rightCards = [
     {
-      title: "Adaptive Learning",
-      description: "Constantly updates operational parameters based on environmental interactions.",
+      title: "Synthetic Cognition",
+      description: "Evaluates mission parameters dynamically, bypassing standard hardcoded loops for genuine adaptive solutions.",
     },
     {
-      title: "Universal Protocol",
-      description: "Interfaces seamlessly with external smart devices, IoT networks, and industrial machinery.",
+      title: "Silent Operation",
+      description: "Proprietary acoustic dampeners in all articulated joints render movement virtually undetectable at 20 meters.",
     },
   ];
 

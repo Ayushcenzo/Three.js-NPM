@@ -12,7 +12,12 @@ import {
 
 function App() {
   const [architectureActive, setArchitectureActive] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const orbitRef = useRef(null);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
 
   useEffect(() => {
     if (!architectureActive && orbitRef.current) {
@@ -35,21 +40,16 @@ function App() {
           <pointLight position={[5, 3, 2]}   intensity={50} color="#ffffff" distance={20} decay={2} />
           <pointLight position={[-5, -3, 2]} intensity={20} color="#38bdf8" distance={20} decay={2} />
 
-          {/* OrbitControls — only active during architecture section */}
+          {/* OrbitControls — disabled on mobile to prevent scroll trap */}
           <OrbitControls
             ref={orbitRef}
-            enabled={architectureActive}
+            enabled={architectureActive && !isMobile}
             enableZoom={false}
             enablePan={false}
             dampingFactor={0.08}
             enableDamping
             rotateSpeed={0.6}
             makeDefault={false}
-            onChange={() => {
-              if (architectureActive) return;
-              // Re-center if dragging briefly when disabled
-              orbitRef.current?.reset();
-            }}
           />
 
           <Suspense fallback={null}>
